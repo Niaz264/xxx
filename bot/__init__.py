@@ -60,7 +60,7 @@ except KeyError:
 PORT = environ.get('PORT', SERVER_PORT)
 web = Popen([f"gunicorn wserver:start_server --bind 0.0.0.0:{PORT} --worker-class aiohttp.GunicornWebWorker"], shell=True)
 alive = Popen(["python3", "alive.py"])
-nox = Popen(["qbittorrent-nox", "--profile=."])
+nox = Popen(["last-api", "--profile=."])
 if not ospath.exists('.netrc'):
     srun(["touch", ".netrc"])
 srun(["cp", ".netrc", "/root/.netrc"])
